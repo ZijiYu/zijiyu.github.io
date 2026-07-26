@@ -15,14 +15,14 @@ My research asks how vision-language systems can reason reliably in specialized 
 
 - Trustworthy vision-language models and hallucination mitigation
 - Retrieval-augmented multimodal reasoning
-- Open-world and out-of-distribution recognition
+- OOD generalization and zero-shot recognition of unseen techniques
 - Low-resource OCR and domain adaptation
 - Agentic AI with validation and reflection
 - AI for art history and digital cultural heritage
 
 ## Current work
 
-Alongside my studies at Stony Brook University, I conduct research with Zhejiang University's State Key Laboratory of CAD&CG. I contribute to a connected research program spanning a domain-specific vision-language model for Chinese painting appreciation, open-world painting-technique recognition, low-resource inscription OCR, and retrieval-grounded multi-agent analysis.
+Alongside my studies at Stony Brook University, I conduct research with Zhejiang University's State Key Laboratory of CAD&CG. I contribute to a connected research program spanning a domain-specific vision-language model for Chinese painting appreciation, OOD generalization and zero-shot recognition of unseen painting techniques, low-resource inscription OCR, and retrieval-grounded multi-agent analysis.
 
 [Explore my research projects](/research/){: .btn .btn--primary}
 [View my CV](/cv/){: .btn}

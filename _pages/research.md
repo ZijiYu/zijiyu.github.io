@@ -16,7 +16,7 @@ Co-developed a Qwen2.5-VL-32B model for traditional Chinese painting appreciatio
 
 ## SILK
 
-### Sparse knowledge and open-world technique recognition
+### Sparse knowledge, OOD generalization, and zero-shot technique recognition
 
 Co-designed a framework combining continued pre-training, vision-language SFT/RLVR, and inference-time reference augmentation. The accompanying expert-validated benchmark contains 1,014 paintings and 3,042 annotations with explicit in-distribution and out-of-distribution splits.
 

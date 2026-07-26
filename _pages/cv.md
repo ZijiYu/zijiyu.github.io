@@ -13,7 +13,7 @@ redirect_from:
 *March 2025–present · Zhejiang, China*
 
 - Multimodal AI and computational methods for traditional Chinese painting understanding
-- Domain-specific VLM adaptation, retrieval grounding, open-world recognition, OCR, and agentic reasoning
+- Domain-specific VLM adaptation, retrieval grounding, OOD generalization, zero-shot recognition of unseen techniques, OCR, and agentic reasoning
 - Expert-informed benchmark and dataset construction
 
 ## Education
