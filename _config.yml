@@ -74,7 +74,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : # Username for X / Twitter
+  twitter          : "RandomInvester1"
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
@@ -138,7 +138,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "RandomInvester1"
 facebook:
   username               :
   app_id                 :
@@ -152,6 +152,7 @@ social:
   name                   : Ziji Yu
   links:
     - "https://github.com/ZijiYu"
+    - "https://x.com/RandomInvester1"
 
 
 # Analytics
