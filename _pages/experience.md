@@ -8,9 +8,9 @@ author_profile: true
 
 ### Zhejiang University · State Key Laboratory of CAD&CG
 
-**Researcher · March 2025–present**
+**Research Assistant · March 2025–July 2026 · Advisor: Prof. Wei Chen**
 
-I work on multimodal AI and computational methods for traditional Chinese painting understanding. My contributions span large-scale data curation, expert annotation, model adaptation, retrieval systems, benchmark design, and quantitative evaluation.
+Worked on trustworthy and retrieval-grounded multimodal learning for cultural heritage. Contributions included large-scale corpus curation, image-QA and preference-data construction, vision-language model post-training, visual retrieval and grounding, expert-validated benchmark design, low-resource OCR, agentic workflows, and quantitative evaluation.
 
 ## Industry
 
@@ -18,36 +18,19 @@ I work on multimodal AI and computational methods for traditional Chinese painti
 
 **Software Testing Intern · May–August 2024**
 
-- Engineered a Docker-based production-parity simulation stack with Python harnesses for high-concurrency traffic.
-- Reproduced a critical incident and optimized resource limits and connection pools, reducing the error rate to below 5%.
-- Built automated end-to-end behavior-driven test suites, increasing critical-scenario coverage by 30% and reducing manual testing time by 50%.
-
-### Joyson and Preh Automotive Electronics
-
-**System Testing Intern · May–August 2022**
-
-- Designed and executed use-case tests for automotive electronic modules.
-- Built Python harnesses to synthesize and replay protocol-correct LIN/CAN traffic.
-- Developed reusable data workflows and analyzed time-series traces to identify communication delays and data loss.
+- Engineered a Docker-based production-parity simulation stack and optimized resource limits and connection pools, reducing the error rate to below 5%.
+- Built Python behavior-driven development suites that increased critical-scenario coverage by 30% and reduced manual testing time by 50%.
 
 ## Teaching and academic service
 
 ### ACM WPES 2025
 
-**Reviewer**
+**Student Reviewer**
 
 Evaluated submissions for methodological rigor, novelty, and relevance, and provided actionable revision feedback.
 
 ### Microeconomics
 
-**Teaching Assistant and Instructor · February–May 2023**
+**Undergraduate Teaching Assistant · February–May 2023**
 
-Led weekly office hours and recitation sessions and provided individualized support to students.
-
-## Leadership
-
-### Computer Amateurs Association
-
-**Vice President · October 2020–November 2022**
-
-Led a 20-member computer club and organized programming, IT, and collaborative hands-on workshops.
+Led weekly office hours and recitation sessions for more than 10 students and maintained assignment and progress records.

@@ -7,22 +7,22 @@ redirect_from:
   - /about.html
 ---
 
-I am an **Information Systems student at Stony Brook University** and a prospective PhD applicant. My work sits at the intersection of **trustworthy multimodal AI**, **retrieval-grounded reasoning**, and **digital cultural heritage**.
+I am pursuing a **B.S. in Information Systems with a double major in Economics at Stony Brook University**, with expected graduation in December 2026. I am a prospective PhD applicant for 2027, working at the intersection of **trustworthy multimodal learning**, **vision-language models**, **retrieval-augmented generation**, and **human-AI collaboration**.
 
-My research asks how vision-language systems can reason reliably in specialized domains where expert knowledge is scarce, visual evidence is subtle, and hallucinations are especially costly. I develop domain-specific models, retrieval and agentic workflows, expert-validated benchmarks, and low-resource adaptation methods using traditional Chinese painting as a technically demanding testbed.
+My research asks how multimodal systems can remain reliable in specialized domains where expert knowledge is scarce, visual evidence is subtle, and unsupported answers are costly. Using traditional Chinese painting as a technically demanding testbed, I have worked on domain-specialized vision-language systems, inspectable visual retrieval, sparse-knowledge learning, low-resource OCR, and retrieval-grounded agentic workflows.
 
 ## Research interests
 
-- Trustworthy vision-language models and hallucination mitigation
+- Trustworthy multimodal learning and vision-language models
 - Retrieval-augmented multimodal reasoning
 - OOD generalization and zero-shot recognition of unseen techniques
 - Low-resource OCR and domain adaptation
-- Agentic AI with validation and reflection
-- AI for art history and digital cultural heritage
+- Human-AI collaboration and agentic workflows
+- Visual grounding and evidence-based generation
 
 ## Current work
 
-Alongside my studies at Stony Brook University, I conduct research with Zhejiang University's State Key Laboratory of CAD&CG. I contribute to a connected research program spanning a domain-specific vision-language model for Chinese painting appreciation, OOD generalization and zero-shot recognition of unseen painting techniques, low-resource inscription OCR, and retrieval-grounded multi-agent analysis.
+From March 2025 to July 2026, I was a Research Assistant in Zhejiang University's State Key Laboratory of CAD&CG, advised by Prof. Wei Chen. I contributed to a connected research program on trustworthy and retrieval-grounded multimodal learning for cultural heritage, spanning Zhihua, local-to-global visual retrieval, SILK, ArtFlow, and domain-bootstrapped OCR.
 
 [Explore my research projects](/research/){: .btn .btn--primary}
 [View my CV](/cv/){: .btn}

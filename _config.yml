@@ -12,7 +12,7 @@ site_theme               : "mint" # The available themes options are "default", 
 title                    : "Ziji Yu"
 title_separator          : "-"
 name                     : &name "Ziji Yu"
-description              : &description "Information Systems student at Stony Brook University and PhD applicant researching trustworthy multimodal AI"
+description              : &description "Stony Brook University student and 2027 PhD applicant researching trustworthy multimodal learning"
 url                      : https://zijiyu.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,11 +26,11 @@ author:
   avatar           : "profile.jpg"
   name             : "Ziji Yu"
   pronouns         : # example: "she/her"  
-  bio              : "Information Systems student at Stony Brook University and PhD applicant working on trustworthy multimodal AI."
+  bio              : "Trustworthy multimodal learning, vision-language models, retrieval, and human-AI collaboration. PhD applicant for 2027."
   location         : "Stony Brook, New York"
   employer         : "Stony Brook University"
   uri              : # URL
-  email            : "yuziji0819@gmail.com"
+  email            : "ziji.yu@stonybrook.edu"
 
   # Academic websites
   academia         : # URL
