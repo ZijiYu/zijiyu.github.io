@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Ziji Yu"
+title: "Ziji Yu (俞子骥)"
 author_profile: true
 redirect_from:
   - /about/
