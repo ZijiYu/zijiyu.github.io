@@ -11,6 +11,8 @@ I am pursuing a **B.S. in Information Systems with a double major in Economics a
 
 My research asks how multimodal systems can remain reliable in specialized domains where expert knowledge is scarce, visual evidence is subtle, and unsupported answers are costly. Using traditional Chinese painting as a technically demanding testbed, I have worked on domain-specialized vision-language systems, inspectable visual retrieval, sparse-knowledge learning, low-resource OCR, and retrieval-grounded agentic workflows.
 
+<blockquote class="phd-plan"><cite>Plan to apply for a 27’Fall PhD program!</cite></blockquote>
+
 ## Research interests
 
 - Trustworthy multimodal learning and vision-language models
