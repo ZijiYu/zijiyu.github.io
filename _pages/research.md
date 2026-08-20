@@ -16,6 +16,9 @@ Curated and mined a multi-source corpus of more than 100,000 traditional Chinese
 
 **Manuscript:** *Zhihua: Leveraging Vision Language Models for Traditional Chinese Painting Appreciation and Storytelling* — revise and resubmit at *Heritage Science*.
 
+**Contributor:** Ziji Yu<sup>*</sup><br>
+<small><sup>*</sup> Equal contribution (co-first author).</small>
+
 **Model:** [zjuqx/ZhiHua](https://huggingface.co/zjuqx/ZhiHua)
 
 ## Local-to-Global Visual Retrieval and Grounding
@@ -55,6 +58,9 @@ Implemented components of a retrieval-grounded workflow spanning perception, par
 **Selected results:** improved GPT-4.1 dimension coverage by 14.1%, exploration-aware coverage by 63.6%, and covered all 15 appraisal dimensions for 73.1% of 199 evaluated paintings.
 
 **Manuscript:** *ArtFlow: An Agentic Workflow for Retrieval-Grounded Traditional Chinese Painting Analysis* — submitted to AAAI 2027.
+
+**Contributor:** Ziji Yu<sup>*</sup><br>
+<small><sup>*</sup> Equal contribution (co-first author).</small>
 
 **Code:** [ZijiYu/ArtFlow](https://github.com/ZijiYu/ArtFlow)
 
