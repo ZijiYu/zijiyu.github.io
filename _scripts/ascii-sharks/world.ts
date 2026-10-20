@@ -21,7 +21,7 @@ export const SHARK_NODES = 20;
 export type SharkKind = "classic" | "hammerhead" | "zebra" | "tiger" | "greathammer" | "mako" | "thresher" | "nurse";
 
 /** Which sharks to put in the water; size is relative to the biggest. */
-export type SharkSpec = { kind: SharkKind; size: number };
+export type SharkSpec = { kind: SharkKind; size: number; glyphs?: string };
 
 // The landing hero: four of the same shark at different depths.
 const DEFAULT_SHARKS: SharkSpec[] = [
@@ -54,6 +54,8 @@ export interface Fish {
 export interface Shark {
   id: number;
   kind: SharkKind;
+  /** Characters repeated across this shark's rendered skin. */
+  glyphs: string;
   length: number;
   /** Spine positions, snout first: [x0, y0, x1, y1, ...]. */
   nodes: Float32Array;
@@ -142,7 +144,7 @@ export class World {
 
     this.sharks = [];
     for (let i = 0; i < sharkCount; i++) {
-      const { kind, size } = this.sharkSpecs[i];
+      const { kind, size, glyphs = "SHARK" } = this.sharkSpecs[i];
       const length = baseLength * size;
       const orbitRadius = minSide * rand(0.28, 0.4);
       const a = (i / sharkCount) * TAU + rand(-0.4, 0.4);
@@ -159,6 +161,7 @@ export class World {
       this.sharks.push({
         id: i + 1,
         kind,
+        glyphs,
         length,
         nodes,
         heading,
