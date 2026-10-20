@@ -12,9 +12,21 @@ if (canvas && toggle) {
     const compact = window.innerWidth < 768;
     const world = new World(
       compact
-        ? [{ kind: "hammerhead", size: 0.85 }, { kind: "classic", size: 0.65 }]
-        : [{ kind: "hammerhead", size: 1 }, { kind: "classic", size: 0.85 }, { kind: "thresher", size: 0.7 }],
-      compact ? 45 : 100,
+        ? [
+            { kind: "hammerhead", size: 0.76, glyphs: "俞子骥" },
+            { kind: "classic", size: 0.64, glyphs: "俞子驥" },
+            { kind: "thresher", size: 0.56, glyphs: "ユー・ズージー" },
+            { kind: "tiger", size: 0.5, glyphs: "위쯔지" },
+            { kind: "mako", size: 0.46, glyphs: "ZIJIYU" },
+          ]
+        : [
+            { kind: "hammerhead", size: 1, glyphs: "俞子骥" },
+            { kind: "classic", size: 0.85, glyphs: "俞子驥" },
+            { kind: "thresher", size: 0.7, glyphs: "ユー・ズージー" },
+            { kind: "tiger", size: 0.62, glyphs: "위쯔지" },
+            { kind: "mako", size: 0.55, glyphs: "ZIJIYU" },
+          ],
+      compact ? 60 : 125,
     );
     const motion = matchMedia("(prefers-reduced-motion: reduce)");
     let paused = motion.matches;

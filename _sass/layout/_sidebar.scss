@@ -322,3 +322,55 @@
     }
   }
 }
+
+// On phone-sized screens, give the portrait and introduction one shared
+// visual axis. The slightly narrower copy measure keeps uneven line endings
+// from making the centered group appear to lean to one side.
+@media screen and (max-width: ($small - 1px)) {
+  .sidebar > [itemtype="http://schema.org/Person"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .author__avatar {
+    display: block;
+    width: 112px;
+
+    img {
+      display: block;
+      width: 112px;
+      margin-inline: auto;
+    }
+  }
+
+  .author__content {
+    display: block;
+    width: min(100%, 30rem);
+    padding: 0;
+  }
+
+  .author__name {
+    margin-top: 0.85rem;
+  }
+
+  .author__bio {
+    margin: 0.4rem auto 0;
+    max-width: 28rem;
+    line-height: 1.55;
+    text-wrap: balance;
+  }
+
+  .author__urls-wrapper {
+    display: block;
+    margin-top: 0.9rem;
+  }
+
+  .author__urls {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

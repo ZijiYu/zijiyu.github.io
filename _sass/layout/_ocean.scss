@@ -1,12 +1,12 @@
 /* ASCII ocean behind readable glass panels. Solid surfaces are the fallback. */
 :root {
-  --ocean-glass: rgba(255, 255, 255, 0.28);
+  --ocean-glass: rgba(255, 255, 255, 0.04);
   --ocean-edge: rgba(109, 138, 151, 0.2);
   --ocean-shadow: 0 10px 36px rgba(30, 57, 71, 0.06);
 }
 
 html[data-theme="dark"] {
-  --ocean-glass: rgba(30, 35, 42, 0.36);
+  --ocean-glass: rgba(30, 35, 42, 0.1);
   --ocean-edge: rgba(187, 211, 227, 0.16);
   --ocean-shadow: 0 10px 36px rgba(0, 0, 0, 0.16);
 }
@@ -49,8 +49,8 @@ html[data-theme="dark"].ocean-ready #ocean-background {
 
     @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
       background: var(--ocean-glass);
-      -webkit-backdrop-filter: blur(18px) saturate(115%);
-      backdrop-filter: blur(18px) saturate(115%);
+      -webkit-backdrop-filter: blur(10px) saturate(110%);
+      backdrop-filter: blur(10px) saturate(110%);
     }
   }
 
@@ -68,6 +68,7 @@ html[data-theme="dark"].ocean-ready #ocean-background {
     overflow: visible;
 
     @media screen and (min-width: 1024px) {
+      position: sticky;
       top: calc(70px + 2rem);
       max-height: calc(100vh - 130px);
       overflow-y: auto;

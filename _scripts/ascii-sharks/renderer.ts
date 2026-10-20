@@ -25,15 +25,6 @@ const WAKE = DOT_RGB.length - 1;
 
 const ACCENTS = ["#e0892c", "#e03a32", "#b44ae0", "#33c8cc", "#3cb54a", "#3150e8", "#d9c14a"];
 
-// Sparse glyphs on bright skin, dense glyphs in shadow, so the texture
-// reinforces the shading instead of fighting it.
-const SKIN_RAMP = ":;t%SX8#@";
-const FIN_GLYPHS = "%;tS:";
-const RIDGE_GLYPHS = "@8%";
-const EDGE_HEAVY = ":;";
-const EDGE_LIGHT = ".',`";
-
-
 const FLAG_BODY = 1;
 const FLAG_EDGE = 2;
 const FLAG_FIN = 3;
@@ -41,7 +32,6 @@ const FLAG_RIDGE = 4;
 const FLAG_EYE = 5;
 /** Dark skin markings: tiger bars, zebra-shark spots. */
 const FLAG_MARK = 6;
-const MARK_GLYPHS = "#%@";
 
 // Sub-cell sample offsets for anti-aliased silhouettes.
 const SUBSAMPLES = [0.25, 0.3, 0.75, 0.3, 0.25, 0.72, 0.75, 0.72];
@@ -294,6 +284,8 @@ export class AsciiRenderer {
   private sharkKey = new Uint32Array(0);
   private sharkDepth = new Float32Array(0);
   private sharkKind = new Uint8Array(0);
+  private sharkOwner = new Uint8Array(0);
+  private sharkGlyphs: string[][] = [];
   /** Cells darkened by a shark's shadow on the seabed. */
   private sharkShadow = new Uint8Array(0);
   private spine = new Float32Array(SHARK_NODES * 2);
@@ -372,6 +364,7 @@ export class AsciiRenderer {
     this.sharkKey = new Uint32Array(n);
     this.sharkDepth = new Float32Array(n);
     this.sharkKind = new Uint8Array(n);
+    this.sharkOwner = new Uint8Array(n);
     this.sharkShadow = new Uint8Array(n);
     this.fishStamp = new Uint32Array(n);
 
@@ -641,9 +634,11 @@ export class AsciiRenderer {
    * Fully covered cells become solid skin; partial cells become edge glyphs.
    */
   private rasterizeSharks(sharks: Shark[], t: number) {
-    const { sharkFlag, sharkShade, sharkKey, sharkDepth, sharkKind, sharkShadow, spine, arc, cw, ch, cols, rows } = this;
+    const { sharkFlag, sharkShade, sharkKey, sharkDepth, sharkKind, sharkOwner, sharkShadow, spine, arc, cw, ch, cols, rows } = this;
     sharkFlag.fill(0);
+    sharkOwner.fill(0);
     sharkShadow.fill(0);
+    this.sharkGlyphs.length = 0;
 
     for (const sh of sharks) {
       const L = sh.length;
@@ -652,6 +647,7 @@ export class AsciiRenderer {
       const swim = clamp(sh.speed / 60, 0.4, 1.4);
       this.shape = SHAPES[sh.kind];
       this.sharkId = sh.id;
+      this.sharkGlyphs[sh.id] = Array.from(sh.glyphs).filter((glyph) => glyph.trim().length > 0);
       const kindIndex = KINDS.indexOf(sh.kind);
 
       // Travelling body wave, growing toward the tail.
@@ -729,6 +725,7 @@ export class AsciiRenderer {
           sharkKey[i] = key;
           sharkDepth[i] = sh.depth;
           sharkKind[i] = kindIndex;
+          sharkOwner[i] = sh.id;
 
           if (centerHit && coverage >= 0.6) {
             sharkFlag[i] = flag;
@@ -747,7 +744,7 @@ export class AsciiRenderer {
   }
 
   private drawSharks(t: number) {
-    const { ctx, cols, rows, cw, ch, sharkFlag, sharkShade, sharkKey, sharkDepth, sharkKind } = this;
+    const { ctx, cols, rows, cw, ch, sharkFlag, sharkShade, sharkKey, sharkDepth, sharkKind, sharkOwner } = this;
     const n = cols * rows;
     for (let i = 0; i < n; i++) {
       const flag = sharkFlag[i];
@@ -760,6 +757,8 @@ export class AsciiRenderer {
       const shade = sharkShade[i];
       const dim = 0.7 + 0.3 * sharkDepth[i];
       const [tr, tg, tb] = SHAPES[KINDS[sharkKind[i]]].tint;
+      const glyphs = this.sharkGlyphs[sharkOwner[i]];
+      const glyph = glyphs?.length ? glyphs[(key >>> 8) % glyphs.length] : "•";
 
       // Colours re-roll on a staggered clock so the hide shimmers.
       const tick = Math.floor(t * 2.4 + (key % 997) / 97);
@@ -767,34 +766,26 @@ export class AsciiRenderer {
 
       if (flag === FLAG_EDGE) {
         // Soft, anti-aliased silhouette: no block, just a light glyph.
-        const set = shade >= 0.5 ? EDGE_HEAVY : EDGE_LIGHT;
         const g = (70 + shade * 80) * dim;
         ctx.fillStyle =
           roll < 0.07
             ? ACCENTS[key % ACCENTS.length]
             : `rgb(${Math.round(g * tr)},${Math.round(g * tg)},${Math.min(255, Math.round(g * tb + 6))})`;
-        ctx.fillText(set[(key >>> 8) % set.length], x + cw / 2, y + ch / 2 + 1);
+        ctx.fillText(glyph, x + cw / 2, y + ch / 2 + 1);
         continue;
       }
 
       let level: number;
-      let glyph: string;
       if (flag === FLAG_RIDGE) {
         level = 226;
-        glyph = RIDGE_GLYPHS[(key >>> 8) % RIDGE_GLYPHS.length];
       } else if (flag === FLAG_EYE) {
         level = 12;
-        glyph = "o";
       } else if (flag === FLAG_MARK) {
         level = 24 + shade * 22;
-        glyph = MARK_GLYPHS[(key >>> 8) % MARK_GLYPHS.length];
       } else if (flag === FLAG_FIN) {
         level = 40 + shade * 120;
-        glyph = FIN_GLYPHS[(key >>> 8) % FIN_GLYPHS.length];
       } else {
         level = 46 + shade * 160;
-        const jitter = ((key >>> 4) % 3) - 1;
-        glyph = SKIN_RAMP[clamp(Math.floor((1 - shade) * 8.99) + jitter, 0, SKIN_RAMP.length - 1)];
       }
       level *= dim;
       // Tinted per species; the classic tint is a cool blue-grey, like a back seen through deep water.

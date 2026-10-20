@@ -24,7 +24,7 @@ My research asks how multimodal systems can remain reliable in specialized domai
 
 ## Current work
 
-From March 2025 to July 2026, I was a Research Assistant in Zhejiang University's State Key Laboratory of CAD&CG, advised by Prof. Wei Chen. I contributed to a connected research program on trustworthy and retrieval-grounded multimodal learning for cultural heritage, spanning Zhihua, local-to-global visual retrieval, SILK, ArtFlow, and domain-bootstrapped OCR.
+I am investigating the limits of out-of-distribution generalization in offline meta-reinforcement learning under the guidance of **Dr. Xinyu Zhang and Prof. Klaus Müller**. My research focuses on understanding whether failures on unseen tasks arise from inaccurate task inference or limitations in a policy's learned behavioral capabilities. Through systematic experiments and behavioral analysis, I aim to identify why these failures occur and explore how to better evaluate and improve generalization.
 
 [Explore my research projects](/research/){: .btn .btn--primary}
 [View my CV](/cv/){: .btn}
