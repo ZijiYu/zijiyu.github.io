@@ -28,11 +28,13 @@
     "plotly.js-dist-min": "^3.6.0"
   },
   "devDependencies": {
+    "esbuild": "0.25.12",
     "jslint": "^0.12.1",
     "onchange": "^7.1.0",
     "uglify-js": "^3.19.3"    
   },
   "scripts": {
+    "build:ocean": "esbuild _scripts/ocean-background.ts --bundle --minify --target=es2020 --format=esm --outfile=assets/js/ocean-background.js",
     "uglify": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
     "build:js": "npm run uglify"

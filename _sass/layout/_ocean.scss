@@ -1,0 +1,139 @@
+/* ASCII ocean behind readable glass panels. Solid surfaces are the fallback. */
+:root {
+  --ocean-glass: rgba(255, 255, 255, 0.28);
+  --ocean-edge: rgba(109, 138, 151, 0.2);
+  --ocean-shadow: 0 10px 36px rgba(30, 57, 71, 0.06);
+}
+
+html[data-theme="dark"] {
+  --ocean-glass: rgba(30, 35, 42, 0.36);
+  --ocean-edge: rgba(187, 211, 227, 0.16);
+  --ocean-shadow: 0 10px 36px rgba(0, 0, 0, 0.16);
+}
+
+body {
+  isolation: isolate;
+}
+
+#ocean-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0;
+}
+
+.ocean-ready #ocean-background {
+  opacity: 0.42;
+}
+
+html[data-theme="dark"].ocean-ready #ocean-background {
+  filter: none;
+  opacity: 0.62;
+}
+
+.ocean-ready {
+  .page__inner-wrap,
+  .archive,
+  .sidebar,
+  .cv-layout #main > .container,
+  .masthead,
+  .ocean-toggle {
+    background: var(--global-bg-color);
+    border: 1px solid var(--ocean-edge);
+    box-shadow: var(--ocean-shadow);
+
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      background: var(--ocean-glass);
+      -webkit-backdrop-filter: blur(18px) saturate(115%);
+      backdrop-filter: blur(18px) saturate(115%);
+    }
+  }
+
+  .page__inner-wrap,
+  .archive,
+  .cv-layout #main > .container {
+    padding: 1.6rem;
+    border-radius: 18px;
+  }
+
+  .sidebar {
+    padding: 1rem;
+    border-radius: 18px;
+    height: auto;
+    overflow: visible;
+
+    @media screen and (min-width: 1024px) {
+      top: calc(70px + 2rem);
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+    }
+  }
+
+  .masthead {
+    border-width: 0 0 1px;
+    // The existing intro opacity animation would isolate the backdrop.
+    animation: none;
+  }
+
+  #main {
+    animation: none;
+  }
+
+  .greedy-nav,
+  .visible-links > .masthead__menu-item {
+    background: transparent;
+  }
+}
+
+.ocean-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 21;
+  padding: 0.55rem 0.85rem;
+  min-height: 44px;
+  border-radius: 999px;
+  color: var(--global-text-color);
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+
+  &[hidden] { display: none; }
+  &:focus-visible { outline: 2px solid var(--global-link-color); outline-offset: 3px; }
+}
+
+@media (max-width: 767px) {
+  .ocean-ready .page__inner-wrap,
+  .ocean-ready .archive,
+  .ocean-ready .cv-layout #main > .container {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+  .ocean-ready {
+    --ocean-glass: var(--global-bg-color);
+  }
+}
+
+@media print {
+  #ocean-background,
+  .ocean-toggle { display: none !important; }
+
+  .ocean-ready .page__inner-wrap,
+  .ocean-ready .archive,
+  .ocean-ready .sidebar,
+  .ocean-ready .cv-layout #main > .container {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: 0;
+  }
+}
